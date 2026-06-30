@@ -47,8 +47,9 @@ function MeetingsPage() {
       if (!title && r.title) setTitle(r.title);
       const item: MeetingItem = {
         id: uid(), createdAt: Date.now(),
-        title: title || r.title, transcript,
+        transcript,
         ...cleaned,
+        title: title || r.title,
       };
       const list = readJSON<MeetingItem[]>(KEYS.meetings, []);
       list.unshift(item);
